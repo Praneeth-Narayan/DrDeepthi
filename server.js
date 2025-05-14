@@ -9,6 +9,11 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+console.log("Razorpay key mode:", 
+  process.env.RAZORPAY_KEY_ID 
+    ? (process.env.RAZORPAY_KEY_ID.startsWith('rzp_live_') ? 'LIVE' : 'TEST') 
+    : 'NOT FOUND');
+
 app.use(cors());
 app.use(bodyParser.json());
 
